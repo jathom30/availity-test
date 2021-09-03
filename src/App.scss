@@ -4,7 +4,14 @@ $niceBlue: rgb(0, 120, 219);
   display: flex;
   height: 100vh;
   background: rgba(black,.05);
+  &__label {
+    padding: .5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
   &__nav {
+    width: min-content;
     background: white;
     border-right: 1px solid lightgrey;
     box-shadow: 0 0 5px rgba(black,.25);
@@ -30,4 +37,9 @@ $niceBlue: rgb(0, 120, 219);
     max-height: 100%;
     overflow: auto;
   }
+}
+
+.AvailityLogo {
+  padding: 1rem;
+  padding-bottom: 0;
 }
