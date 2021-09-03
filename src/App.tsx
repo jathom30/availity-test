@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, Route, Switch, useLocation } from 'react-router-dom'
 import './App.scss'
-import { LISPRoute, RegistrationRoute } from './Routes'
+import { HomeRoute, LISPRoute, RegistrationRoute } from './Routes'
 
 const routes = [
   {
@@ -22,7 +22,9 @@ function App() {
   return (
     <div className="App">
         <nav className="App__nav">
-          <AvailityLogo />
+          <NavLink to="/">
+            <AvailityLogo />
+          </NavLink>
           <span className="App__label">Take home assignments</span>
           <NavLink
             className={`App__nav-link ${pathname === '/lisp' ? 'App__nav-link--is-active' : ''}`}
@@ -42,6 +44,7 @@ function App() {
             {routes.map(({path, component}) => (
               <Route key={path} exact path={path} component={component} />
             ))}
+            <Route component={HomeRoute} />
           </Switch>
         </main>
     </div>
