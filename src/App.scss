@@ -1,0 +1,31 @@
+.App {
+  display: flex;
+  height: 100vh;
+  background: rgba(black,.05);
+  &__nav {
+    background: white;
+    border-right: 1px solid lightgrey;
+    box-shadow: 0 0 5px rgba(black,.25);
+    display: flex;
+    flex-direction: column;
+  }
+  &__nav-link {
+    text-decoration: none;
+    padding: .5rem 1rem;
+    border-right: solid 5px transparent;
+    color: black;
+    white-space: nowrap;
+    &--is-active {
+      color: red;
+      border-right-color:red;
+    }
+    &:hover {
+      background: rgba(black,.125);
+    }
+  }
+  &__main {
+    width: 100%;
+    max-height: 100%;
+    overflow: auto;
+  }
+}
