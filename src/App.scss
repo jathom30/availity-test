@@ -1,3 +1,5 @@
+$niceBlue: rgb(0, 120, 219);
+
 .App {
   display: flex;
   height: 100vh;
@@ -16,8 +18,8 @@
     color: black;
     white-space: nowrap;
     &--is-active {
-      color: red;
-      border-right-color:red;
+      color: $niceBlue;
+      border-right-color:$niceBlue;
     }
     &:hover {
       background: rgba(black,.125);

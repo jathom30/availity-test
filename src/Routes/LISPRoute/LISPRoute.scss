@@ -7,7 +7,7 @@ $passingGreen: rgb(0, 219, 55);
   gap: 1rem;
   &__tests {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
   }
   &__section {
