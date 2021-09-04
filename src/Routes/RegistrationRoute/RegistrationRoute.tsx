@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { Modal } from 'Components'
 import { useValidatedMask, useValidatedState } from 'Hooks'
@@ -20,7 +20,15 @@ export const RegistrationRoute = () => {
   })
   const [street, setStreet] = useState('')
   const [city, setCity] = useState('')
-  const [state, setState] = useState('')
+  const [state, setState, isValidState] = useValidatedMask({
+    initialState: '',
+    validation: /^[A-Z]{2}$/,
+    mask: (value) => {
+      if (value.length > 2)
+        return state
+      return value.replace(/\d/g,'').toUpperCase()
+    },
+  })
   const [zip, setZip, isValidZip] = useValidatedMask({
     initialState: '',
     validationMask: 'zip-code',
@@ -66,6 +74,7 @@ export const RegistrationRoute = () => {
     isValidNPI,
     isValidPhone,
     isValidZip,
+    isValidState,
   ].every((value) => value)
 
   return (
@@ -130,9 +139,10 @@ export const RegistrationRoute = () => {
                   onChange={setCity}
                 />
                 <FormInput
-                  label="State"
+                  label="State (Abbr.)"
                   value={state}
                   onChange={setState}
+                  hasError={!isValidState}
                 />
                 <FormInput
                   label="Zip code"
