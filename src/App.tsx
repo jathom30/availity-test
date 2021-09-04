@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
         <nav className="App__nav">
-          <NavLink to="/">
+          <NavLink className="App__logo-link" to="/">
             <AvailityLogo />
           </NavLink>
           <span className="App__label">Take home assignments</span>
