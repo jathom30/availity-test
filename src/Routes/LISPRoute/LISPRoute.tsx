@@ -43,7 +43,11 @@ export const LISPRoute = () => {
           )
         })}
       </div>
-      <div className="LISPRoute__custom">
+      <div
+        className={`LISPRoute__custom ${
+          (customIsPassing && customLISP) ? 'LISPRoute__custom--is-passing' : ''
+        } ${!customIsPassing ? 'LISPRoute__custom--is-failing' : ''}`}
+      >
         <span className="LISPRoute__label">Insert a custom LISP string for evaluation</span>
         <textarea
           className="LISPRoute__text-area"
