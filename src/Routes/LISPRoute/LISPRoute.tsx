@@ -27,7 +27,7 @@ export const LISPRoute = () => {
   return (
     <div className="LISPRoute">
       <h1>LISP tests</h1>
-      <span className="LISPRoute__label">Sample LISP string tests</span>
+      <span className="LISPRoute__label">LISP Test Examples:</span>
       <div className="LISPRoute__tests">
         {lispTests.map((test, i) => {
           const isPassing = lispCheck(test)
