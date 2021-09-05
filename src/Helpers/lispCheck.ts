@@ -11,16 +11,16 @@ export const lispCheck = (lispCode: string, kind?: '(' | '[' | '{' | '<') => {
         return ['(', ')']
     }
   }
+  const open = closures()[0]
+  const close = closures()[1]
 
   const getMatch = (match: string) => {
     const newMatch = new RegExp(`\\${match}`, 'g')
     return lispCode.match(newMatch) || []
   }
 
-  // const openingParens = lispCode.match(/\(/g) || []
-  // const closingParens = lispCode.match(/\)/g) || []
-  const openingParens = getMatch(closures()[0])
-  const closingParens = getMatch(closures()[1])
+  const openingParens = getMatch(open)
+  const closingParens = getMatch(close)
   // make sure there is an equal number of opening and closing parens
   const equalOpenAndClose = openingParens.length === closingParens.length
 
@@ -31,8 +31,8 @@ export const lispCheck = (lispCode: string, kind?: '(' | '[' | '{' | '<') => {
   const parensCountTest = Array.from(lispCode).reduce((acc, char) => {
     // if prev loop returned false, it will remain false throughout
     if (!acc) return false
-    if (char === closures()[0]) currentOpenedCount += 1
-    if (char === closures()[1]) currentClosedCount += 1
+    if (char === open) currentOpenedCount += 1
+    if (char === close) currentClosedCount += 1
     return currentOpenedCount >= currentClosedCount
   }, true)
 
