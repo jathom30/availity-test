@@ -23,7 +23,7 @@ const lispTests = [passingLispExample, extraEndLispExample, extraLispExample, or
 export const LISPRoute = () => {
   const [customLISP, setCustomLISP] = useState('')
 
-  const customIsPassing = lispCheck(customLISP)
+  const customIsPassing = lispCheck(customLISP, '(')
   return (
     <div className="LISPRoute">
       <h1>LISP tests</h1>
